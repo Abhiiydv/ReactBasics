@@ -7,7 +7,7 @@ function App() {
     <>
 
 
-<Navbar></Navbar>
+<Navbar title="textUtil2"></Navbar>
 
     </>
   );
