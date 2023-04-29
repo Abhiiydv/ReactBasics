@@ -4,8 +4,9 @@ import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import About from './components/About';
 import { useState } from 'react';
+import { Routes  } from 'react-router-dom';
 import {
-  BrowserRouter as Router, Switch,
+  BrowserRouter as Router,
   Route,
   Link
 } from 'react-router-dom';
@@ -29,14 +30,21 @@ function App() {
   return (
     <>
 
+<Router>
+
 
       <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} key={new Date()} />
 
       <div className="container my-3">
-        <TextForm heading="Enter text to play with.." mode={mode} />
-        {/* <About></About> */}
+      <Routes>
+     
+          <Route  path="/about" element={<About/>}/>
+          <Route  path="/" element={<TextForm heading="Enter text to play with.." mode={mode} />}/>
+          {/* <Route path="*" element={<NotFound/>}/> */}
+        
+      </Routes>
       </div>
-      <About></About>
+      </Router>
     </>
   );
 }
